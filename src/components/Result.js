@@ -29,7 +29,7 @@ export default function Result(props) {
             />
             <ListItem
               title={"Total Tax Owing Bi-Weekly"}
-              subtitle={`$ ${props.data.totalTaxBill / 26}`}
+              subtitle={`$ ${Math.round(props.data.totalTaxBill / 26 * 100) / 100}`}
             />
         </View> :
         null

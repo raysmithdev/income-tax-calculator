@@ -2,7 +2,7 @@
 
 A React Native App to help get a quick glance of the amount of tax owed by an individual in Ireland.
 
-![alt text](https://github.com/raysmithdev/income-tax-calculator/blob/master/assets/screenshot.png)
+![alt text](https://github.com/raysmithdev/income-tax-calculator/blob/master/assets/screenshot.png =250x250)
 
 ## Skills used
 * React native
