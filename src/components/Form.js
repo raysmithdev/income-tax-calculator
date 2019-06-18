@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Input } from 'react-native-elements'
 import Result from './Result'
@@ -29,6 +29,7 @@ export default function Form() {
   const [highIncomeTax, setHighIncomeTax] = useState(0)
   const [prsi, setPrsi] = useState(0)
   const [totalTaxBill, setTotalTaxBill] = useState(0)
+  const [showResults, setShowResults] = useState(false)
 
 
   const handleSubmit = input => {
@@ -44,17 +45,20 @@ export default function Form() {
 
     // USC
 
+
     // PRSI
     let prsi = salary * rates.prsi / 100
     setPrsi(prsi)
 
     // setTotalTaxBill
     setTotalTaxBill(lowIncomeTax + highIncomeTax + prsi)
+
+    setShowResults(true)
   }
 
   const [salary, setSalary] = useState('')
   return (
-    <View>
+    <View style={styles.container}>
       <Input
         onSubmitEditing={handleSubmit}
         placeholder='Enter your yearly income'
@@ -66,7 +70,13 @@ export default function Form() {
           />
         }
       />
-      <Result data={{lowIncomeTax, highIncomeTax, prsi, totalTaxBill}}/>
+      <Result data={{lowIncomeTax, highIncomeTax, prsi, totalTaxBill, showResults}}/>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 10
+  },
+})

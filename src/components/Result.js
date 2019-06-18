@@ -3,31 +3,37 @@ import { StyleSheet, Text, View } from 'react-native'
 import { ListItem, Divider } from 'react-native-elements'
 
 export default function Result(props) {
-  console.log(props);
+  console.log(props.data);
 
   return (
-    <View style={styles.container}>
-        <ListItem
-          title={"Income Tax @ 20%"}
-          subtitle={`$ ${props.data.lowIncomeTax}`}
-        />
-        <ListItem
-          title={"Income Tax @ 40%"}
-          subtitle={`$ ${props.data.highIncomeTax}`}
-        />
-        <ListItem
-          title={"Prsi @ 4%"}
-          subtitle={`$ ${props.data.prsi}`}
-        />
-        <Divider style={{ backgroundColor: 'blue' }} />
-        <ListItem
-          title={"Total Tax Owing"}
-          subtitle={`$ ${props.data.totalTaxBill}`}
-        />
-        <ListItem
-          title={"Total Tax Owing Bi-Weekly"}
-          subtitle={`$ ${props.data.totalTaxBill / 26}`}
-        />
+    <View>
+      {props.data.showResults
+        ?
+        <View style={styles.container}>
+            <ListItem
+              title={"Income Tax @ 20%"}
+              subtitle={`$ ${props.data.lowIncomeTax}`}
+            />
+            <ListItem
+              title={"Income Tax @ 40%"}
+              subtitle={`$ ${props.data.highIncomeTax}`}
+            />
+            <ListItem
+              title={"Prsi @ 4%"}
+              subtitle={`$ ${props.data.prsi}`}
+            />
+            <Divider style={{ backgroundColor: '#1A535C' }} />
+            <ListItem
+              title={"Total Tax Owing"}
+              subtitle={`$ ${props.data.totalTaxBill}`}
+            />
+            <ListItem
+              title={"Total Tax Owing Bi-Weekly"}
+              subtitle={`$ ${props.data.totalTaxBill / 26}`}
+            />
+        </View> :
+        null
+      }
     </View>
   )
 }
