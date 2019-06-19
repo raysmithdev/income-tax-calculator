@@ -34,7 +34,7 @@ export default function Form() {
   const [uscTax, setUscTax] = useState([])
   const [totalUscTaxOwed, setTotalUscTaxOwed] = useState(0)
 
-
+  //// TODO: Refactor handleSubmit function. Bit messy at the moment.
   const handleSubmit = input => {
     let salary = input.nativeEvent.text
 
